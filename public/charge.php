@@ -19,7 +19,7 @@ error_log('created customer for: ' . $_POST['email']);
 error_log('customer id: ' . $customer['id']);
 
 $charge = \Stripe\Charge::create(array(
-    "amount" => 4000,
+    "amount" => 3500,
     "currency" => "USD",
     "customer" => $customer['id'],
     "description" => "Venture Early Bird Ticket"
