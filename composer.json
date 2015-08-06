@@ -1,0 +1,8 @@
+{
+  "name": "lvtech/venture",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "require": {
+    "stripe/stripe-php": "^2.0@dev"
+  }
+}
