@@ -6,6 +6,14 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 <head>
 	<meta charset="utf-8">
 	<title>Venture Lehigh Valley</title>
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@lvtech">
+	<meta name="twitter:creator" content="@lvtech">
+	<meta name="twitter:title" content="LVTech: Venture Lehigh Valley - One Weekend - Endless Possibilities">
+	<meta name="twitter:description" content="Venture Weekend is open to individuals, teams, startup ideas, new products, pivots - in a word, Ventures. They become a reality over the weekend. Individuals collaborate on teams, teams challenge each other, friendships and connections form that outlast the weekend.">
+	<meta name="twitter:image" content="http://<?php echo $_SERVER['HTTP_HOST'] ?>/images/wide.jpg">
+
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,7 +122,7 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 	</header>
 	
 	<div class="container header-inner">
-		<h1 class="headline"><span>Venture Lehigh Valley</span> <br/> One Weekend <br/> Endless Possibilties</h1>
+		<h1 class="headline"><span>Venture Lehigh Valley</span> <br/> One Weekend <br/> Endless Possibilities</h1>
 	</div>
 
 	<a name="weekend"></a>
