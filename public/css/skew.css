@@ -1,0 +1,99 @@
+/*Skew Effect*/
+.skew-top-cw, .skew-top-ccw, .skew-bottom-cw, .skew-bottom-ccw {
+	position: relative;
+	display: block;
+}
+
+.skew-top-cw, .skew-top-ccw {
+	padding-top: 160px;
+}
+
+.skew-bottom-cw, .skew-bottom-ccw {
+	padding-bottom: 160px;
+}
+
+.skew-top-cw:before {
+	content: '';
+	position: absolute;
+	background: url(../images/skew-full-top-cw.png) bottom;
+	background-size: 100% 100%;
+	height: 120px;
+	top: 0;
+	width: 100%;
+	display: block;
+}
+
+.skew-top-ccw:before {
+	content: '';
+	position: absolute;
+	background: url(../images/skew-full-top-ccw.png) bottom;
+	background-size: 100% 100%;
+	height: 120px;
+	top: 0;
+	width: 100%;
+	display: block;
+}
+
+.skew-bottom-cw:after {
+	content: '';
+	position: absolute;
+	background: url(../images/skew-full-bottom-cw.png) bottom;
+	background-size: 100% 100%;
+	height: 120px;
+	bottom: 0;
+	width: 100%;
+	display: block;
+}
+
+.skew-bottom-ccw:after {
+	content: '';
+	position: absolute;
+	background: url(../images/skew-full-bottom-ccw.png) bottom;
+	background-size: 100% 100%;
+	height: 120px;
+	bottom: 0;
+	width: 100%;
+	display: block;
+}
+
+@media only screen and (max-width: 720px) {
+	.skew-top-cw:before {
+		content: '';
+		position: absolute;
+		background: url(../images/skew-min-top-cw.png) bottom;
+		height: 100px;
+		top: 0;
+		width: 100%;
+		display: block;
+	}
+	
+	.skew-top-ccw:before {
+		content: '';
+		position: absolute;
+		background: url(../images/skew-min-top-ccw.png) bottom;
+		height: 100px;
+		top: 0;
+		width: 100%;
+		display: block;
+	}
+	
+	.skew-bottom-cw:after {
+		content: '';
+		position: absolute;
+		background: url(../images/skew-min-bottom-cw.png) bottom;
+		height: 100px;
+		bottom: 0;
+		width: 100%;
+		display: block;
+	}
+	
+	.skew-bottom-ccw:after {
+		content: '';
+		position: absolute;
+		background: url(../images/skew-min-bottom-ccw.png) bottom;
+		height: 100px;
+		bottom: 0;
+		width: 100%;
+		display: block;
+	}
+}

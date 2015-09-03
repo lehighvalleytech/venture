@@ -1,0 +1,48 @@
+@media only screen and (max-width: 960px) {
+	.header-inner h1.headline {
+		font-size: 78px;
+		margin: 120px 0 0 0;
+	}
+	.text-block-left, .text-block-right {
+		padding: 0px 0px 20px 0px;
+	}
+	h2 {
+		font-size: 50px;
+	}
+	p.subheading {
+		font-size: 18px;
+	}
+	.team-photo img {
+		width: 160px;
+	}
+	section {
+		padding: 40px 0;
+	}
+}
+
+@media only screen and (max-width: 720px) {
+	.header-inner h1.headline {
+		font-size: 70px;
+		margin: 100px 0 0 0;
+	}
+	.team-photo img {
+		width: 220px;
+	}
+	section {
+		padding: 0px 0;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.header-inner h1.headline {
+		font-size: 60px;
+		margin: 80px 0 0 0;
+	}
+	h2 {
+		font-size: 40px;
+	}
+	p.subheading {
+		font-size: 14px;
+	}
+}
+

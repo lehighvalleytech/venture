@@ -3,6 +3,8 @@
   "minimum-stability": "dev",
   "license": "proprietary",
   "require": {
-    "stripe/stripe-php": "^2.0@dev"
+    "stripe/stripe-php": "^2.0@dev",
+    "andrefelipe/orchestrate-php": "^0.13.2",
+    "sendgrid/sendgrid": "3.2.0"
   }
 }
