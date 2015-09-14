@@ -140,7 +140,7 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 						each other, friendships and connections form that outlast the weekend.
 					</p>
 					<p>
-						Friday night teams form around ideas pitched in sixty seconds or less. Exsisting teams are
+						Friday night teams form around ideas pitched in sixty seconds or less. Existing teams are
 						welcome, even encouraged. All day Saturday teams work on their ventures. Perfecting a prototype,
 						validating a market, determining a revenue model.
 					</p>
@@ -173,7 +173,7 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 						<b>Venture Lehigh Valley</b> is built on the successful weekend events LVTech has organized for years now.
 					</p>
 					<p>
-						You might say it's a <i>pivot</i>, but we'd call the next <i>iteration</i>.
+						You might say it's a <i>pivot</i>, but we'd call it the next <i>iteration</i>.
 					</p>
 					<p>
 						Venture recognizes that creativity, innovation, and the entrepreneurial spirit are not confined to startups.<br/>
@@ -309,6 +309,16 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 		</div>
 	</footer>
 		
-</div>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-29148247-3', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+
 </body>
 </html>
