@@ -78,6 +78,11 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 		$(function(){
 			$('.payment').on('click', function(e) {
 				amount = $(this).attr('data-amount');
+
+				if(/@lehigh.edu$/.test($('#email').val())){
+					amount = amount - 1500;
+				}
+
 				// Open Checkout with further options
 				handler.open({
 					name: 'LVTech',

@@ -55,6 +55,10 @@ switch($_POST['amount']){
     case "3500":
         $type = 'student';
         $amount = 3500;
+
+        if('lehigh.edu' == substr(strrchr($_POST['email'], "@"), 1)){
+            $amount = $amount - 1500;
+        }
         break;
     default:
         $type = 'early';
