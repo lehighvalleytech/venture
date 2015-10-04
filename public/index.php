@@ -219,18 +219,21 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 		<div id="owl-team">
 			<div class="team-member" data-wow-delay="500ms">
 				<div class="team-photo" >
-					<img src="images/anthony.jpg" alt="" />
+					<img src="images/moe.jpg" alt="" />
 				</div>
-				<p class="job-role">Anthony Durante</p>
+				<p class="job-role">Moe Rinkunas</p>
 				<h4>So You Have An Idea</h4>
-				<p class="job-role">October 5th</p>
+				<p class="job-role">October 12th</p>
+				<p class="job-role">Bridgeworks Enterprise Center</p>
 				<p>
 					An idea is just the start. You need to get critical about your thought process, learn how to structure a venture, and avoid common mistakes.
 				</p>
 				<p>
 					Get a head start, and the tools you need to effectively plan and execute your venture.
 				</p>
-
+				<p>
+					<a href="http://www.meetup.com/lvtech/events/225087846/">More Details</a>
+				</p>
 			</div>
 
 			<div class="team-member" data-wow-delay="500ms">
@@ -239,13 +242,16 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 				</div>
 				<p class="job-role">Jeffrey Boerner</p>
 				<h4>From Mind to Material</h4>
-				<p class="job-role">October 12th</p>
+				<p class="job-role">October 16th</p>
 				<p>
 					Are you venturing into the real world? Get an overview of the tools available for modern prototyping.
 				</p>
 				<p>
 					It’s not just 3D printers, wood and metal can be milled, laser cutters can be used for rapidly
 					iteration, and cardboard and a knife can be a great starting place.
+				</p>
+				<p>
+					<a href="http://www.meetup.com/lvtech/events/225087867/">More Details</a>
 				</p>
 			</div>
 
@@ -262,6 +268,9 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 				<p>
 					Learn how to pitch effectively, and get 60 seconds to win over someone who gets pitched every day.
 					Then socialize your idea with the rest of the group over some great food.
+				</p>
+				<p>
+					<a href="http://www.meetup.com/lvtech/events/225087872/">More Details</a>
 				</p>
 			</div>
 		</div>
