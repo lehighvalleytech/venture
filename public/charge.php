@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../init.php';
 
 error_log(json_encode($_POST));
 
@@ -51,20 +51,24 @@ if(!$user['stripe']){ //create a new stripe customer
     }
 }
 
-switch($_POST['amount']){
-    case "3500":
-        $type = 'student';
-        $amount = 3500;
+if("3500" == $_POST['amount'] OR "2000" == $_POST['amount']){
+    $type = 'student';
+    $amount = 3500;
 
-        if('lehigh.edu' == substr(strrchr($_POST['email'], "@"), 1)){
-            $amount = $amount - 1500;
-        }
-        break;
-    default:
-        $type = 'early';
-        $amount = 4000;
-        break;
+    if('lehigh.edu' == substr(strrchr($_POST['email'], "@"), 1)){
+        $amount = $amount - 1500;
+    }
+} elseif(time() < strtotime('10/1/15')) {
+    $type = 'early';
+    $amount = 4000;
+} elseif(time() < strtotime('10/23/15')){
+    $type = 'standard';
+    $amount = 5000;
+} else {
+    $type = 'late';
+    $amount = 7500;
 }
+
 
 try {
     $charge = \Stripe\Charge::create(array(
@@ -76,6 +80,7 @@ try {
     $user->event('log')->post(['description' => 'venture ticket purchase', 'error' => false, 'id' => $charge['id']]);
 } catch (Exception $e) {
     $user->event('log')->post(['description' => 'venture ticket purchase', 'error' => true, 'message' => $e->getMessage()]);
+    error_log($e->getMessage());
     throw new RuntimeException('could not make charge');
 }
 
@@ -105,7 +110,7 @@ try{
         ->addCc($user['email'])
         ->setFrom('tim@lehighvalleytech.org')
         ->setSubject('LVTech: Venture Ticket Confirmation')
-        ->setText("Thanks for your order, you'll get an email with your ticket and event information early in October.");
+        ->setText("Thanks for your order, consider this  email your ticket. See you on Friday the 23rd at Ben Franklin Tech Ventures: http://www.meetup.com/lvtech/events/225087827/");
     $sendgrid->send($email);
     $ticket->event('log')->post(['description' => 'purchase confirmation email', 'error' => false]);
 } catch (Exception $e) {

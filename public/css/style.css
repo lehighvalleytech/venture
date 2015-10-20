@@ -461,9 +461,18 @@ section.parallax {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-section.parallax-1 {
   background-image: url("../images/postit.jpg");
+  color: #f2be22;
+}
+
+section.parallax p {
+  color: #f2be22;
+  margin-top: 0px;
+}
+
+section.parallax .subheading {
+	color: #f2be22;
+	margin-bottom: 0px;
 }
 
 /*Team*/

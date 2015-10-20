@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../init.php';
+
 $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 ?>
 <!DOCTYPE html>
@@ -70,6 +72,9 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 						email:  $('#email').val(),
 						amount: amount
 					},
+					error: function(xhr, textStatus, errorThrown){
+						alert('Sorry, there was an error processing your payment. Please try again or contact tim@lehighvalleytech.org.');
+					},
 					type: 'POST'
 				});
 			}
@@ -127,6 +132,8 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 						<li><a href="#story">The Story</a></li>
 						<li><a href="#weekend">Venture Weekend</a></li>
 						<li><a href="#runway">The Runway</a></li>
+						<li><a href="#schedule">Schedule</a></li>
+						<li><a href="#sponsors">Sponsors</a></li>
 						<li><a href="#tickets">Tickets</a></li>
 					</ul>
 				</nav>
@@ -138,7 +145,7 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 	</header>
 	
 	<div class="container header-inner">
-		<h1 class="headline"><span>Venture Lehigh Valley</span> <br/> One Weekend <br/> Endless Possibilities</h1>
+		<h1 class="headline"><span>Venture Lehigh Valley</span> <br/> One Weekend, <br/> Endless Possibilities</h1>
 	</div>
 
 	<a name="weekend"></a>
@@ -152,19 +159,21 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 						Venture Weekend is open to individuals, teams, startup ideas, new products, pivots - in a word, Ventures.
 					</p>
 					<p>
-						They become a reality over the weekend. Individuals collaborate on teams, teams challenge
+						Ventures become a reality over the weekend. Individuals collaborate on teams, teams challenge
 						each other, friendships and connections form that outlast the weekend.
 					</p>
 					<p>
-						Friday night teams form around ideas pitched in sixty seconds or less. Existing teams are
-						welcome, even encouraged. All day Saturday teams work on their ventures. Perfecting a prototype,
-						validating a market, determining a revenue model.
+						On Friday night teams form around ideas pitched in sixty seconds or less. Existing teams are
+						welcome, even encouraged, as long as they are open to new members. All day Saturday teams work
+						on their ventures. Perfecting a prototype, validating a market, determining a revenue model.
 					</p>
 					<p>
 						Sunday afternoon each team presents to a panel of judges who evaluate their idea, everything
 						accomplished that weekend, and pick the best Venture.
 					</p>
 					<a href="#tickets" class="button">Get Tickets</a>
+					<a href="#schedule" class="button">Schedule</a>
+
 				</div>
 			</div>
 
@@ -193,7 +202,8 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 					</p>
 					<p>
 						Venture recognizes that creativity, innovation, and the entrepreneurial spirit are not confined to startups.<br/>
-						That open collaboration is key, that technology isn't just online, and that a weekend is only part of the process.
+						Venture knows that open collaboration is key, that technology isn't just online, and that a weekend is only
+						part of the process.
 					</p>
 					<a href="#tickets" class="button">Get Tickets</a>
 				</div>
@@ -283,14 +293,60 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 		</script>
 		<div class="clear"></div>
 	</section>
-	
+
+	<a name="schedule"></a>
+	<section class="module parallax skew-top-cw skew-bottom-cw">
+		<div class="container-12">
+			<div class="text-block-center">
+				<h2>Schedule</h2>
+				<p class="subheading">Friday</p>
+				<p>
+					6:30 - Registration <br/>
+					7:00 - Welcome & Warmup <br/>
+					7:30 - Venture Pitches <br/>
+					8:00 - Teams Form <br/>
+					10:00 - Time To Leave
+				</p>
+
+				<p class="subheading">Saturday</p>
+				<p>
+					9:00 - Doors Open & Breakfast <br/>
+					12:00 - Lunch <br/>
+					6:00 - Dinner <br/>
+					10:00 - Get Some Sleep
+				</p>
+
+				<p class="subheading">Sunday</p>
+				<p>
+					9:00 - Doors Open & Breakfast <br/>
+					1:00 - Lunch <br/>
+					4:00 - Presentations <br/>
+					5:00 - Judging <br/>
+					6:00 - Closing
+				</p>
+
+			</div>
+			<div class="clear"></div>
+		</div>
+	</section>
+
+	<a name="sponsors"></a>
+	<div class="container-12">
+		<div class="text-block-center">
+			<h2>Sponsors</h2>
+			<img src="images/lvt.png" style="height: 90px; margin-bottom: 3S0px"/>
+			<img src="images/baker.png" style="height: 125px; margin-bottom: 30px"/>
+			<img src="images/bftv.png" style="height: 125px"/>
+		</div>
+	</div>
+
 	<a name="tickets"></a>
 	<section class="alt-background skew-top-cw" style="padding-bottom: 80px;">
 		<div class="container-12">
 			<div class="text-block-center">
 				<h2>Tickets</h2>
 				<p class="subheading">For Venture Weekend and Runway Events</p>
-				<p><strike>Super Early: $35</strike> <br/> Early (Sep): $40 &nbsp;|&nbsp;  Standard (Oct) $50  &nbsp;|&nbsp;  Late (Oct 19th) $75</p>
+				<p><strike>Super Early: $35</strike> <br/> <strike>Early (Sep): $40</strike> &nbsp;|&nbsp;  Standard (Oct) $50  &nbsp;|&nbsp;  Day Of (Oct 23rd) $75</p>
 			</div>
 
 			<form class="mailing-list" method="post" action="/">
@@ -311,7 +367,12 @@ $stripe_public = getenv('STRIPE_PUBLIC_KEY');
 						<p><label>Email</label> <input type="text" name="email" id="email" value=""></p>
 
 
-						<a href="#tickets" class="button payment" data-amount="4000">Buy Early Ticket ($40)</a>
+						<?php if(time() < strtotime('10/23/15')) : ?>
+							<a href="#tickets" class="button payment" data-amount="5000">Buy Standard Ticket ($50)</a>
+						<?php else: ?>
+							<a href="#tickets" class="button payment" data-amount="7500">Buy Late Ticket ($75)</a>
+						<?php endif; ?>
+
 						<a href="#tickets" class="button payment" data-amount="3500">Buy Student Ticket ($35)</a>
 					</div>
 				</div>
