@@ -1,0 +1,43 @@
+<section class="">
+    <div class="container-12">
+        <h2>Ticket</h2>
+        <div class="row">
+            <div class="grid-4">
+                <div class="text-block-left">
+                    <dl>
+                        <dt>
+                            Attendee
+                        </dt>
+                        <dd>
+                            <?php echo $this->escapeHtml($ticket['name']) ?>
+                        </dd>
+
+                        <dt>
+                            Type
+                        </dt>
+                        <dd>
+                            <?php echo $this->escapeHtml($ticket->type) ?>
+                        </dd>
+                        <dt>
+                            Code
+                        </dt>
+                        <dd>
+                            <?php echo $this->escapeHtml($ticket->getKey()) ?>
+                        </dd>
+                    </dl>
+
+                </div>
+            </div>
+            <div class="grid-8">
+                <div class="text-block-left">
+                    <p class="subheading">Ticket</p>
+
+                    <p>
+                        You can print this page if you want, but just provide your name when checking in at the event.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</section>

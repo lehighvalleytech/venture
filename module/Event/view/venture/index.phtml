@@ -1,0 +1,73 @@
+<?php foreach($this->sections as $section): ?>
+    <a name="<?php echo $section->getSlug() ?>"></a>
+
+    <?php $this->placeholder('image')->captureStart('SET'); ?>
+        <?php if($section->getImage('section.illustration')) : ?>
+            <div class="grid-4">
+                <img class="responsive-img round-corners" src="<?php echo $section->getImage('section.illustration')->getUrl() ?>" alt="" />
+            </div>
+        <?php endif; ?>
+    <?php $this->placeholder('image')->captureEnd(); ?>
+
+    <?php
+        $classes = [];
+        if($section->getGroup('section.classes')){
+            foreach($section->getGroup('section.classes')->getArray() as $item){
+                $classes[] = $item->getText('class');
+            }
+        }
+        $classes = implode(' ', $classes);
+    ?>
+    <section class="<?php echo $classes;?>">
+        <div class="container-12">
+            <?php if($section->has('section.position') AND $section->get('section.position')->getValue() == 'right'): ?>
+                <?php echo $this->placeholder('image'); ?>
+            <?php endif; ?>
+
+            <div class="grid-8">
+                <div class="text-block-left">
+                    <h2><?php echo $section->getText('section.title')?></h2>
+                    <p class="subheading"><?php echo $section->getText('section.subtitle')?></p>
+                    <?php echo $section->getStructuredText('section.content')->asHtml() ?>
+                    <a href="/venture/register" class="button">Get Tickets</a>
+                    <a href="/venture#schedule" class="button">Schedule</a>
+
+                </div>
+            </div>
+
+            <?php if(!$section->has('section.position') OR $section->getText('section.position') !== 'right'): ?>
+                <?php echo $this->placeholder('image'); ?>
+            <?php endif; ?>
+
+            <div class="clear"></div>
+        </div>
+    </section>
+<?php endforeach; ?>
+
+<a name="schedule"></a>
+<section class="module parallax skew-top-cw skew-bottom-cw">
+    <div class="container-12">
+        <h2>Schedule</h2>
+            <?php foreach($schedule as $day): ?>
+            <div class="grid-4">
+                <p class="subheading"><?php echo $day->getText('schedule.title') ?></p>
+                <p>
+                    <?php foreach($day->getGroup('schedule.schedule')->getArray() as $item): ?>
+                        <?php echo $item->getText('time') ?> - <?php echo $item->getText('title') ?><br>
+                    <?php endforeach; ?>
+                </p>
+            </div>
+        <?php endforeach; ?>
+        <div class="clear"></div>
+    </div>
+</section>
+
+<a name="sponsors"></a>
+<div class="container-12">
+    <div class="text-block-center">
+        <h2>Sponsors</h2>
+        <?php foreach($event->getGroup('event.sponsors')->getArray() as $sponsor): ?>
+            <img src="<?php echo $sponsor->getImage('logo')->getUrl(); ?>" style="margin-bottom: 30px">
+        <?php endforeach; ?>
+    </div>
+</div>

@@ -9,7 +9,6 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
@@ -227,7 +226,7 @@ strong, em {
 	width: 80%;
 }
 
-.header-inner h1.headline {
+.header-inner h1 {
 	color: #fff;
 	font-size: 84px;
 	line-height: 1.2em;
@@ -236,7 +235,7 @@ strong, em {
 	text-align: center;
 }
 
-.header-inner h1.headline span {
+.header-inner h1 span {
 	color: #f2be22;
 }
 
@@ -583,21 +582,35 @@ blockquote span {
 
 /*Mailing List*/
 
-.mailing-list label {
+form label span {
 	text-align: right;
 	width: 100px;
 	margin-right: 10px;
 	display: inline-block;
 }
 
-.mailing-list input {
+form input {
 	margin: 0 20px 10px 0;
 	clear: both;
-	border: 1px solid #fff;
+	border: 1px solid #59554A;
 	background: transparent;
-	color: #fff;
 	text-indent: 10px;
 	border-radius: 4px;
+}
+
+form input[type=button], form input[type=submit], form button {
+	border: 2px solid #59554A;
+	width: 100%;
+	background: #59554A;
+	color: #fff;
+	border-radius: 4px;
+	margin: 0 auto;
+}
+
+form input[type=button]:hover, form input[type=submit]:hover, form button {
+	background: #f2be22;
+	border: 2px solid #f2be22;
+	color: #fff;
 }
 
 /*Footer*/

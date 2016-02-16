@@ -1,0 +1,109 @@
+p {
+	font-size: 20px;
+}
+
+div.venture {
+	background-color: #0d0d0d;
+	padding: 10px;
+	margin: 0px;
+	color: #ffffff;
+}
+
+div.venture a {
+	color: #ffffff;
+}
+
+div.venture a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 10px 0;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 100;
+	line-height: 24px;
+	color: inherit;
+	text-rendering: optimizelegibility;
+}
+
+h3 {
+	color: #DA8024;
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.social-icons {
+	list-style: none outside none;
+	display: block;
+	margin: 0px auto;
+	text-align: center;
+	width:200px;
+	height: 50px;
+}
+
+.social-icons li a:hover {
+	background: #DA8024;
+}
+
+.logo {
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.row-fluid .span7.span-fixed-sidebar .row-fluid .span3.floating-box {
+	border: 1px solid #aaa;
+	height: 150px;
+	background: #ffffff;
+	margin-left: 7.42%;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	color: #000000;
+	margin-left: 6.9%;
+}
+
+.row-fluid .span7.span-fixed-sidebar .row-fluid .span3.floating-box h3 {
+	border-bottom: 1px solid #aaa;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.row-fluid .span7.span-fixed-sidebar .row-fluid.floating-wrapper .top-span {
+	border: 1px solid #aaa;
+	height: 500px;
+	background: #ffffff;
+	text-align: center;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	color: #333333;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.row-fluid .span7.span-fixed-sidebar .row-fluid.floating-wrapper .top-span h3 {
+	border-bottom: 1px solid #aaa;
+}
+
+.row-fluid .span7.span-fixed-sidebar #map_canvas {
+	width: 100%;
+	min-height: 760px;
+	height: 100%;
+	display: block;
+	color: #000000;
+	border-left: 1px solid #aaa;
+}
+
+@media (max-width: 480px) {
+  .nav-collapse {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  .logo img {
+    width:85%;
+  }
+  .logo {
+	margin-top: 20px;
+	margin-bottom: 0px;
+	}
+ }

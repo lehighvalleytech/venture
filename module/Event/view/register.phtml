@@ -1,0 +1,49 @@
+<section class="">
+    <div class="container-12">
+        <h2>Register</h2>
+        <div class="row">
+            <div class="grid-4">
+                <div class="text-block-left">
+                    <?php foreach($this->event['tickets'] as $ticket): ?>
+                        <?php if(!$ticket['visible']) continue; ?>
+                        <dl>
+                            <dt>
+                                <?php echo $this->escapeHtml($ticket['title']) ?>
+                            </dt>
+                            <dd>
+                                $<?php echo $this->escapeHtml(substr($ticket['amount'], 0, strlen($ticket['amount']) - 2)) ?>
+                                <?php if(isset($ticket['until'])): ?>
+                                    (ends <?php echo $ticket['until']->format('M j') ?>)
+                                <?php endif; ?>
+                                <?php if(isset($ticket['description'])): ?>
+                                    (<?php echo $ticket['description'] ?>)
+                                <?php endif; ?>
+                            </dd>
+                        </dl>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="grid-8">
+                <div class="text-block-left">
+                    <p class="subheading">Attendee Information</p>
+
+                    <p>
+                        Please add the contact information for the person attending.
+                        Billing contact information is gathered once you select a ticket.
+                    </p>
+
+                    <form action="" method="post">
+                        <?php foreach($this->form as $element): ?>
+                            <p>
+                                <?php echo $this->formRow($element); ?>
+                            </p>
+                        <?php endforeach; ?>
+
+                        <input type="submit" value="Next">
+                    </form>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</section>

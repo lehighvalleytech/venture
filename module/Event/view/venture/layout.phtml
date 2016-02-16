@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Lehigh Valley Tech</title>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lvtech">
+    <meta name="twitter:creator" content="@lvtech">
+    <meta name="twitter:title" content="LVTech: Venture Lehigh Valley - One Weekend - Endless Possibilities">
+    <meta name="twitter:description" content="Venture Weekend is open to individuals, teams, startup ideas, new products, pivots - in a word, Ventures. They become a reality over the weekend. Individuals collaborate on teams, teams challenge each other, friendships and connections form that outlast the weekend.">
+    <meta name="twitter:image" content="http://<?php echo $_SERVER['HTTP_HOST'] ?>/images/wide.jpg">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/rwdgrid.css">
+    <link rel="stylesheet" href="/css/skew.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/cbp-fwslider.css">
+    <link rel="stylesheet" href="/css/responsive-nav.css">
+    <link rel="stylesheet" href="/css/owl.carousel.css">
+    <link rel="stylesheet" href="/css/owl.theme.css">
+    <link rel="stylesheet" href="/css/owl.transitions.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="/css/prettyPhoto.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mediaqueries.css">
+
+
+    <!--Javascript-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/js/modernizr.custom.js"></script>
+    <script src="/js/jquery.cbpFWSlider.js"></script>
+    <script src="/js/responsive-nav.js"></script>
+    <script src="/js/owl.carousel.js"></script>
+    <script src="/js/wow.js"></script><script> new WOW().init();</script>
+    <script src="/js/jquery.counterup.js"></script>
+    <script src="/js/jquery.waypoints.js"></script>
+    <script src="/js/jquery.prettyPhoto.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <?php echo $this->headScript(); ?>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-29148247-3', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+<body>
+<div id="cbp-fwslider" class="cbp-fwslider skew-bottom-ccw">
+</div>
+<header class="header">
+    <div class="top-bar">
+        <div class="container">
+            <div class="site-title">
+                <a href="/venture"><img src="/images/site-title.png" alt="site-title" /></a>
+                <!--<a href="#">Skewed</a>-->
+            </div>
+            <nav class="nav-collapse">
+                <ul class="top-nav">
+                    <?php if($this->event): ?>
+                        <?php foreach($this->event->getGroup('event.sections')->getArray() as $section): ?>
+                            <li><a href="/venture#<?php echo $this->escapeHtml($section['link']->getSlug()) ?>">
+                                    <?php echo $this->escapeHtml(ucwords(str_replace('-', ' ', $section['link']->getSlug()))) ?>
+                            </a></li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+
+                    <li><a href="/venture#schedule">Schedule</a></li>
+                    <li><a href="/venture#sponsors">Sponsors</a></li>
+                    <li><a href="/venture/register">Tickets</a></li>
+                </ul>
+            </nav>
+            <script>
+                var navigation = responsiveNav(".nav-collapse");
+            </script>
+        </div>
+    </div>
+</header>
+<div class="container header-inner">
+    <?php echo $this->event->getStructuredText('event.headline')->asHtml() ?>
+</div>
+
+<?php echo $this->content; ?>
+<footer class="footer">
+    <div class="container-12">
+        <ul class="social">
+            <li><a href="https://twitter.com/lvtech" title="Twitter" class="fa fa-twitter"></a></li>
+            <div class="clear"></div>
+        </ul>
+        <p>Copyright 2015 <em>LVTech</em>&trade; All Rights Reserved</p>
+    </div>
+</footer>
+</body>
+</html>

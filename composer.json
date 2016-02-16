@@ -5,6 +5,22 @@
   "require": {
     "stripe/stripe-php": "^2.0@dev",
     "andrefelipe/orchestrate-php": "^0.13.2",
-    "sendgrid/sendgrid": "3.2.0"
+    "sendgrid/sendgrid": "3.2.0",
+    "zendframework/zendframework": "2.5.1",
+    "prismic/php-sdk": "^1.7"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.zendframework.com/"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Event\\": "module/Event/src"
+    },
+    "classmap": [
+      "module/Event/Module.php"
+    ]
   }
 }
