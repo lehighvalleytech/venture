@@ -93,6 +93,9 @@
     background-size: 100% auto;background-color:#EC7A29;">
                 <div class="container">
                     <img class="featured-robot" src="/images/lvhack-robot.png">
+                    <?php if($this->event): ?>
+                        <h1><?php echo $this->escapeHtml($event->getDate('event.start')->formatted('F jS')); ?> - <?php echo $this->escapeHtml($event->getDate('event.end')->formatted('jS')); ?></h1>
+                    <?php endif; ?>
                 </div>
             </div>
 
