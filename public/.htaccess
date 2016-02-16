@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^hack\.lehighvalleytech\.org [NC]
+RewriteRule ^(.*)$ https://lehighvalleytech.org/lvhack [L,R=301]
+RewriteCond %{HTTP_HOST} ^venture\.lehighvalleytech\.org [NC]
+RewriteRule ^(.*)$ https://lehighvalleytech.org/venture [L,R=301]
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ /index.php [NC,L]
+
