@@ -7,7 +7,8 @@
     "andrefelipe/orchestrate-php": "^0.13.2",
     "sendgrid/sendgrid": "3.2.0",
     "zendframework/zendframework": "2.5.1",
-    "prismic/php-sdk": "^1.7"
+    "prismic/php-sdk": "^1.7",
+    "rollbar/rollbar": "^0.15.0"
   },
   "repositories": [
     {

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dee8e7c2e12ed3479d288754a24a73df",
-    "content-hash": "cb3f9d947c02d86bf32214cf82acb1ac",
+    "hash": "2dbd4080eaa3e11c47389f5c60c57cbb",
+    "content-hash": "e36947b368c5081ca7d49ddb5142fa2a",
     "packages": [
         {
             "name": "andrefelipe/orchestrate-php",
@@ -589,7 +589,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/ce91d434b3dc443a3294c4535747765e84d11094",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/b02221e42163be673f9b44a0bc92a8b4907a7c6d",
                 "reference": "ce91d434b3dc443a3294c4535747765e84d11094",
                 "shasum": ""
             },
@@ -651,7 +651,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/85f5db2d0a0da79ad6a256eb54148ba383059ad9",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/fe33716763b604ade4cb442c0794f5bd5ad73004",
                 "reference": "85f5db2d0a0da79ad6a256eb54148ba383059ad9",
                 "shasum": ""
             },
@@ -892,7 +892,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fb92b101c2dc5ecb6800d82c72c79b0e956831e8",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4b94545180af80d03465b1099109394d0bfa1a10",
                 "reference": "fb92b101c2dc5ecb6800d82c72c79b0e956831e8",
                 "shasum": ""
             },
@@ -967,7 +967,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/c4dd0c9e7fcbf53c6aa48012902be692318c7566",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/aaf40b8e9cc03426a442bf0d2b09d41ac00736f0",
                 "reference": "c4dd0c9e7fcbf53c6aa48012902be692318c7566",
                 "shasum": ""
             },
@@ -1152,6 +1152,55 @@
             "time": "2015-07-03 13:48:55"
         },
         {
+            "name": "rollbar/rollbar",
+            "version": "v0.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rollbar/rollbar-php.git",
+                "reference": "f4ead5be5e52443f0c9e0272a0cd5813a5b3199a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/f4ead5be5e52443f0c9e0272a0cd5813a5b3199a",
+                "reference": "f4ead5be5e52443f0c9e0272a0cd5813a5b3199a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/rollbar.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rollbar, Inc.",
+                    "email": "support@rollbar.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Monitors errors and exceptions and reports them to Rollbar",
+            "homepage": "http://github.com/rollbar/rollbar-php",
+            "keywords": [
+                "debugging",
+                "errors",
+                "exceptions",
+                "logging",
+                "monitoring"
+            ],
+            "time": "2015-07-29 00:03:24"
+        },
+        {
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "dev-master",
             "source": {
@@ -1322,7 +1371,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6e7133793a8e5a5714a551a8324337374be209df",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/dc7a29032cf72b54f36dac15a1ca5b3a1b6029bf",
                 "reference": "6e7133793a8e5a5714a551a8324337374be209df",
                 "shasum": ""
             },
@@ -1884,7 +1933,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/a4d7a7a129c244c8fadb7a8dce4258623c0dbbf3",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/801d412451594f7c9e7950a016a377798cf9dfa0",
                 "reference": "a4d7a7a129c244c8fadb7a8dce4258623c0dbbf3",
                 "shasum": ""
             },
