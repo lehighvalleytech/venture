@@ -30,7 +30,8 @@ class Service
         $info = $event->toArray();
         foreach($info['value']['tickets'] as $id => $data){
             if(!isset($data['until'])) continue;
-            $info['value']['tickets'][$id]['until'] = new \DateTime($data['until']['date'], new \DateTimeZone($data['until']['timezone']));
+            $date = new \DateTime($data['until']['date'], new \DateTimeZone($data['until']['timezone']));
+            $info['value']['tickets'][$id]['until'] = $date;
         }
         return $info['value'];
     }
@@ -40,6 +41,8 @@ class Service
         $info = $this->getEventInfo($event);
         $possible = $info['tickets'];
         $now = new \DateTime();
+        //we really mean until the *end* of the day, so we're off by one
+        $now->sub(new \DateInterval('P1D'));
         foreach($possible as $type => $data)
         {
             if(isset($data['until']) AND $now > $data['until']){
@@ -68,9 +71,13 @@ class Service
         });
     }
 
-    public function createTicket($event, $name, $phone, $email, $code = null)
+    public function createTicket($event, $name, $phone, $email, $code = null, array $override = null)
     {
-        $ticketData = $this->getBestTicket($event, $email, $code);
+        if(empty($override)){
+            $ticketData = $this->getBestTicket($event, $email, $code);
+        } else {
+            $ticketData = $override;
+        }
 
         $tickets = $this->application->collection('tickets');
 
@@ -109,6 +116,33 @@ class Service
         }
 
         return $user;
+    }
+
+    public function confirmTicket($ticket, $user)
+    {
+        $ticket['confirmed'] = true;
+        if(!$ticket->put() OR
+            !$ticket->relation('buyer', $user)->put() OR
+            !$user->relation('purchase', $ticket)->put()){
+            throw new \RuntimeException('could not save ticket information');
+        }
+
+        error_log('confirmed user');
+
+        try{
+            $email = new \SendGrid\Email();
+            $email->addTo($ticket['email'])
+                ->addCc($user['email'])
+                ->setFrom('tim@lehighvalleytech.org')
+                ->setSubject('LVTech: ' . $ticket['event'] . ' Ticket Confirmation')
+                ->setText("Thanks for your order, consider this email your ticket. If you need to reference this order, use code: " . $ticket->getKey());
+            $this->sendgrid->send($email);
+            $ticket->event('log')->post(['description' => 'purchase confirmation email', 'error' => false]);
+            error_log('sent ticket email');
+        } catch (\Exception $e) {
+            $ticket->event('log')->post(['description' => 'purchase confirmation email', 'error' => true, 'message' => $e->getMessage()]);
+            error_log($e->getMessage());
+        }
     }
 
     public function payTicket($ticket, $email, $token)
@@ -159,31 +193,14 @@ class Service
                     ])
             ));
             $user->event('log')->post(['description' => 'venture ticket purchase', 'error' => false, 'id' => $charge['id']]);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $user->event('log')->post(['description' => 'venture ticket purchase', 'error' => true, 'message' => $e->getMessage()]);
             error_log($e->getMessage());
-            throw new RuntimeException('could not make charge');
+            throw new \RuntimeException('could not make charge');
         }
 
         $ticket['stripe_charge'] = $charge['id'];
-        if(!$ticket->put() OR
-            !$ticket->relation('buyer', $user)->put() OR
-            !$user->relation('purchase', $ticket)->put()){
-            throw new RuntimeException('could not save ticket information');
-        }
-
-        try{
-            $email = new \SendGrid\Email();
-            $email->addTo($ticket['email'])
-                ->addCc($user['email'])
-                ->setFrom('tim@lehighvalleytech.org')
-                ->setSubject('LVTech: VTicket Confirmation')
-                ->setText("Thanks for your order, consider this email your ticket. If you need to reference this order, use code: " . $ticket->getKey());
-            $this->sendgrid->send($email);
-            $ticket->event('log')->post(['description' => 'purchase confirmation email', 'error' => false]);
-        } catch (Exception $e) {
-            $ticket->event('log')->post(['description' => 'purchase confirmation email', 'error' => true, 'message' => $e->getMessage()]);
-        }
+        return $this->confirmTicket($ticket, $user);
     }
 
     public function getTicket($id)
